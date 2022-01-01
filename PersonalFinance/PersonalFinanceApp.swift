@@ -13,7 +13,7 @@ struct PersonalFinanceApp: App {
 
     var body: some Scene {
         WindowGroup {
-            NewTransactionView()
+           DashBoardView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

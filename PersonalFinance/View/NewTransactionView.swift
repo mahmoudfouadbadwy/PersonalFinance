@@ -10,10 +10,6 @@ import SwiftUI
 struct NewTransactionView: View {
     
     @Environment(\.managedObjectContext) private var context
-    @FetchRequest(
-        entity: PaymentActivity.entity(),
-        sortDescriptors: [ NSSortDescriptor(keyPath: \PaymentActivity.date, ascending: false) ])
-    private var paymentActivities: FetchedResults<PaymentActivity>
     @ObservedObject private var transactionViewModel: NewTransactionViewModel
     
     init() {
@@ -137,7 +133,7 @@ struct NewTransactionView: View {
         
         do {
             try context.save()
-            print("Saved \(paymentActivities.count)")
+            print("Saved")
         } catch {
             print(error.localizedDescription)
         }
@@ -145,6 +141,7 @@ struct NewTransactionView: View {
 }
 
 struct TitleBar: View {
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         HStack(alignment: .lastTextBaseline) {
             
@@ -156,7 +153,7 @@ struct TitleBar: View {
             Spacer()
             
             Button {
-                //action
+                self.presentationMode.wrappedValue.dismiss()
             } label: {
                 Image(systemName: "multiply")
                     .font(.title)
