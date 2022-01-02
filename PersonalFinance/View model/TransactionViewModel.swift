@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class NewTransactionViewModel: ObservableObject {
+class TransactionViewModel: ObservableObject {
     
     //inputs
     @Published var name = ""
@@ -25,21 +25,24 @@ class NewTransactionViewModel: ObservableObject {
     @Published var isMemoValid = true
     @Published var isFormInputValid = false
     
-    private var cancellableSet: Set<AnyCancellable> = []
     
-    init() {
+    init(transaction: PaymentActivity?) {
+        self.name = transaction?.name ?? ""
+        self.location = transaction?.address ?? ""
+        self.amount = "\(transaction?.amount ?? 0.0)"
+        self.memo = transaction?.memo ?? ""
+        self.type = transaction?.paymentType ?? .expense
+        self.date = (transaction?.date ?? Date()).string(with: "dd/MM/yyyy")
         
         $name
             .receive(on: DispatchQueue.main)
             .map{$0.count > 0}
-            .assign(to: \.isNameValid, on: self)
-            .store(in: &cancellableSet)
+            .assign(to: &$isNameValid)
         
         $date
             .receive(on: DispatchQueue.main)
             .map { Date.fromString(string: $0, with: "dd/MM/yyyy") != nil }
-            .assign(to: \.isDateValid, on: self)
-            .store(in: &cancellableSet)
+            .assign(to: &$isDateValid)
         
         $amount
             .receive(on: DispatchQueue.main)
@@ -49,14 +52,12 @@ class NewTransactionViewModel: ObservableObject {
                 }
                return validAmount > 0
             }
-            .assign(to: \.isAmountValid, on: self)
-            .store(in: &cancellableSet)
+            .assign(to: &$isAmountValid)
         
         $memo
             .receive(on: DispatchQueue.main)
             .map {$0.count < 300 }
-            .assign(to: \.isMemoValid, on: self)
-            .store(in: &cancellableSet)
+            .assign(to: &$isMemoValid)
         
         
         Publishers
@@ -65,8 +66,7 @@ class NewTransactionViewModel: ObservableObject {
             .map{
                 $0 && $1 && $2 && $3
             }
-            .assign(to: \.isFormInputValid, on: self)
-            .store(in: &cancellableSet)
+            .assign(to: &$isFormInputValid)
     }
     
 }

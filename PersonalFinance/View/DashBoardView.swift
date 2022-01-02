@@ -20,6 +20,7 @@ struct DashBoardView: View {
         sortDescriptors: [ NSSortDescriptor(keyPath: \PaymentActivity.date, ascending: false) ])
     private var paymentActivities: FetchedResults<PaymentActivity>
     @State private var listType: TransactionDisplayType = .all
+    @State private var editTransactionDetails = false
     
     private var totalIncome: Double {
         paymentActivities
@@ -56,7 +57,7 @@ struct DashBoardView: View {
     var body: some View {
         List {
             MenuBar {
-                NewTransactionView()
+                TransactionView()
             }
             .listRowInsets(EdgeInsets())
             
@@ -69,14 +70,50 @@ struct DashBoardView: View {
                 
                 TransactionHeader(listType: $listType)
             }
-            .padding( 10 )
+            .padding(10)
             .listRowInsets(EdgeInsets())
             
-            ForEach(paymentTransactionsForView) {
-                TransactionCellView(transaction: $0)
+            ForEach(paymentTransactionsForView) { transaction in
+                TransactionCellView(transaction: transaction)
+                    .contextMenu {
+                        Button(action: {
+                            // Edit payment details
+                            editTransactionDetails = true
+                        }) {
+                            HStack {
+                                Text("Edit")
+                                Image(systemName: "pencil")
+                            }
+                        }
+                        
+                        Button(action: {
+                            // Delete the selected payment
+                            self.delete(item: transaction)
+                        }) {
+                            HStack {
+                                Text("Delete")
+                                Image(systemName: "trash")
+                            }
+                        }
+                    }
+                    .sheet(isPresented: $editTransactionDetails) {
+                        editTransactionDetails = false
+                    } content: {
+                        TransactionView(transaction)
+                    }
+
             }
         }
+    }
+    
+    private func delete(item: PaymentActivity) {
         
+        self.context.delete(item)
+        do {
+            try self.context.save()
+        } catch {
+            print(error)
+        }
     }
 }
 

@@ -10,14 +10,14 @@
 		3B000D79277DDD8A00D9AC7D /* PaymentActivity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B000D77277DDD8A00D9AC7D /* PaymentActivity+CoreDataClass.swift */; };
 		3B000D7A277DDD8A00D9AC7D /* PaymentActivity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B000D78277DDD8A00D9AC7D /* PaymentActivity+CoreDataProperties.swift */; };
 		3B000D7E277DE01100D9AC7D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B000D7D277DE01100D9AC7D /* Date+Extension.swift */; };
-		3B000D81277DE3DF00D9AC7D /* NewTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B000D80277DE3DF00D9AC7D /* NewTransactionViewModel.swift */; };
+		3B000D81277DE3DF00D9AC7D /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B000D80277DE3DF00D9AC7D /* TransactionViewModel.swift */; };
 		3B000D83277DF04C00D9AC7D /* MagicKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B000D82277DF04C00D9AC7D /* MagicKeyboard.swift */; };
 		3B402587277DC3F5000394E8 /* PersonalFinanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B402586277DC3F5000394E8 /* PersonalFinanceApp.swift */; };
 		3B40258B277DC3F6000394E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B40258A277DC3F6000394E8 /* Assets.xcassets */; };
 		3B40258E277DC3F6000394E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B40258D277DC3F6000394E8 /* Preview Assets.xcassets */; };
 		3B402590277DC3F6000394E8 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40258F277DC3F6000394E8 /* Persistence.swift */; };
 		3B402593277DC3F6000394E8 /* PersonalFinance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B402591277DC3F6000394E8 /* PersonalFinance.xcdatamodeld */; };
-		3B40259D277DC4B5000394E8 /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40259C277DC4B5000394E8 /* NewTransactionView.swift */; };
+		3B40259D277DC4B5000394E8 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40259C277DC4B5000394E8 /* TransactionView.swift */; };
 		3B8BFC24278069B200B51F1E /* DashBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BFC23278069B200B51F1E /* DashBoardView.swift */; };
 		3B8BFC262780744200B51F1E /* NumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BFC252780744200B51F1E /* NumberFormatter+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -26,7 +26,7 @@
 		3B000D77277DDD8A00D9AC7D /* PaymentActivity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PaymentActivity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3B000D78277DDD8A00D9AC7D /* PaymentActivity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PaymentActivity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3B000D7D277DE01100D9AC7D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		3B000D80277DE3DF00D9AC7D /* NewTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionViewModel.swift; sourceTree = "<group>"; };
+		3B000D80277DE3DF00D9AC7D /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		3B000D82277DF04C00D9AC7D /* MagicKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicKeyboard.swift; sourceTree = "<group>"; };
 		3B402583277DC3F5000394E8 /* PersonalFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B402586277DC3F5000394E8 /* PersonalFinanceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalFinanceApp.swift; sourceTree = "<group>"; };
@@ -34,7 +34,7 @@
 		3B40258D277DC3F6000394E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B40258F277DC3F6000394E8 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		3B402592277DC3F6000394E8 /* PersonalFinance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PersonalFinance.xcdatamodel; sourceTree = "<group>"; };
-		3B40259C277DC4B5000394E8 /* NewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
+		3B40259C277DC4B5000394E8 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		3B8BFC23278069B200B51F1E /* DashBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardView.swift; sourceTree = "<group>"; };
 		3B8BFC252780744200B51F1E /* NumberFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,7 +71,7 @@
 		3B000D7F277DE3BB00D9AC7D /* View model */ = {
 			isa = PBXGroup;
 			children = (
-				3B000D80277DE3DF00D9AC7D /* NewTransactionViewModel.swift */,
+				3B000D80277DE3DF00D9AC7D /* TransactionViewModel.swift */,
 			);
 			path = "View model";
 			sourceTree = "<group>";
@@ -119,9 +119,9 @@
 		3B402599277DC464000394E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3B40259C277DC4B5000394E8 /* NewTransactionView.swift */,
-				3B000D82277DF04C00D9AC7D /* MagicKeyboard.swift */,
 				3B8BFC23278069B200B51F1E /* DashBoardView.swift */,
+				3B40259C277DC4B5000394E8 /* TransactionView.swift */,
+				3B000D82277DF04C00D9AC7D /* MagicKeyboard.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -201,8 +201,8 @@
 				3B000D7A277DDD8A00D9AC7D /* PaymentActivity+CoreDataProperties.swift in Sources */,
 				3B000D83277DF04C00D9AC7D /* MagicKeyboard.swift in Sources */,
 				3B402590277DC3F6000394E8 /* Persistence.swift in Sources */,
-				3B40259D277DC4B5000394E8 /* NewTransactionView.swift in Sources */,
-				3B000D81277DE3DF00D9AC7D /* NewTransactionViewModel.swift in Sources */,
+				3B40259D277DC4B5000394E8 /* TransactionView.swift in Sources */,
+				3B000D81277DE3DF00D9AC7D /* TransactionViewModel.swift in Sources */,
 				3B8BFC262780744200B51F1E /* NumberFormatter+Extension.swift in Sources */,
 				3B000D7E277DE01100D9AC7D /* Date+Extension.swift in Sources */,
 				3B402587277DC3F5000394E8 /* PersonalFinanceApp.swift in Sources */,

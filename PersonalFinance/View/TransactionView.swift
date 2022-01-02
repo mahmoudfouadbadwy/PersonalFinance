@@ -7,13 +7,16 @@
 
 import SwiftUI
 
-struct NewTransactionView: View {
+struct TransactionView: View {
     
     @Environment(\.managedObjectContext) private var context
-    @ObservedObject private var transactionViewModel: NewTransactionViewModel
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject private var transactionViewModel: TransactionViewModel
+    private var transaction: PaymentActivity?
     
-    init() {
-        transactionViewModel = NewTransactionViewModel()
+    init(_ transaction: PaymentActivity? = nil) {
+        self.transaction = transaction
+        transactionViewModel = TransactionViewModel(transaction: transaction)
     }
     
     var body: some View {
@@ -102,6 +105,7 @@ struct NewTransactionView: View {
                 // save button
                 Button {
                     save()
+                    self.presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Save")
                         .font(.headline)
@@ -122,7 +126,7 @@ struct NewTransactionView: View {
     
     
     private func save() {
-        let newTransaction = PaymentActivity(context: context)
+        let newTransaction = transaction ?? PaymentActivity(context: context)
         newTransaction.paymentID = UUID()
         newTransaction.name = transactionViewModel.name
         newTransaction.paymentType = transactionViewModel.type
@@ -209,6 +213,6 @@ struct FormTextField: View {
 
 struct NewTransactionView_Previews: PreviewProvider {
     static var previews: some View {
-        NewTransactionView()
+        TransactionView()
     }
 }
