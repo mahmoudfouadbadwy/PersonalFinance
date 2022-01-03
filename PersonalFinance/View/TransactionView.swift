@@ -64,7 +64,7 @@ struct TransactionView: View {
                         } label: {
                             Text("Income")
                                 .font(.system(.headline))
-                                .foregroundColor(transactionViewModel.type == .income ? .white : .primary)
+                                .foregroundColor(transactionViewModel.type == .income ? .white : .black)
                             
                         }
                         .frame(minWidth: 0.0, maxWidth: .infinity)
@@ -76,7 +76,7 @@ struct TransactionView: View {
                         } label: {
                             Text("Expense")
                                 .font(.system(.headline))
-                                .foregroundColor(transactionViewModel.type == .expense ? .white : .primary)
+                                .foregroundColor(transactionViewModel.type == .expense ? .white : .black)
                         }
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .padding()

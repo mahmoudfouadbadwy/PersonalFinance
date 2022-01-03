@@ -20,6 +20,10 @@
 		3B40259D277DC4B5000394E8 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40259C277DC4B5000394E8 /* TransactionView.swift */; };
 		3B8BFC24278069B200B51F1E /* DashBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BFC23278069B200B51F1E /* DashBoardView.swift */; };
 		3B8BFC262780744200B51F1E /* NumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8BFC252780744200B51F1E /* NumberFormatter+Extension.swift */; };
+		3BEFE5BB27831309004F0D91 /* BlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEFE5BA27831309004F0D91 /* BlankView.swift */; };
+		3BEFE5BD2783185F004F0D91 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEFE5BC2783185F004F0D91 /* BottomSheet.swift */; };
+		3BEFE5BF27831CC9004F0D91 /* TransactionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEFE5BE27831CC9004F0D91 /* TransactionDetails.swift */; };
+		3BEFE5C127831D7A004F0D91 /* TransactionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEFE5C027831D7A004F0D91 /* TransactionDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		3B40259C277DC4B5000394E8 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		3B8BFC23278069B200B51F1E /* DashBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardView.swift; sourceTree = "<group>"; };
 		3B8BFC252780744200B51F1E /* NumberFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extension.swift"; sourceTree = "<group>"; };
+		3BEFE5BA27831309004F0D91 /* BlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankView.swift; sourceTree = "<group>"; };
+		3BEFE5BC2783185F004F0D91 /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
+		3BEFE5BE27831CC9004F0D91 /* TransactionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetails.swift; sourceTree = "<group>"; };
+		3BEFE5C027831D7A004F0D91 /* TransactionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				3B000D80277DE3DF00D9AC7D /* TransactionViewModel.swift */,
+				3BEFE5C027831D7A004F0D91 /* TransactionDetailViewModel.swift */,
 			);
 			path = "View model";
 			sourceTree = "<group>";
@@ -122,6 +131,9 @@
 				3B8BFC23278069B200B51F1E /* DashBoardView.swift */,
 				3B40259C277DC4B5000394E8 /* TransactionView.swift */,
 				3B000D82277DF04C00D9AC7D /* MagicKeyboard.swift */,
+				3BEFE5BA27831309004F0D91 /* BlankView.swift */,
+				3BEFE5BC2783185F004F0D91 /* BottomSheet.swift */,
+				3BEFE5BE27831CC9004F0D91 /* TransactionDetails.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,16 +209,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B402593277DC3F6000394E8 /* PersonalFinance.xcdatamodeld in Sources */,
+				3BEFE5BB27831309004F0D91 /* BlankView.swift in Sources */,
+				3BEFE5BD2783185F004F0D91 /* BottomSheet.swift in Sources */,
 				3B8BFC24278069B200B51F1E /* DashBoardView.swift in Sources */,
 				3B000D7A277DDD8A00D9AC7D /* PaymentActivity+CoreDataProperties.swift in Sources */,
 				3B000D83277DF04C00D9AC7D /* MagicKeyboard.swift in Sources */,
 				3B402590277DC3F6000394E8 /* Persistence.swift in Sources */,
+				3BEFE5C127831D7A004F0D91 /* TransactionDetailViewModel.swift in Sources */,
 				3B40259D277DC4B5000394E8 /* TransactionView.swift in Sources */,
 				3B000D81277DE3DF00D9AC7D /* TransactionViewModel.swift in Sources */,
 				3B8BFC262780744200B51F1E /* NumberFormatter+Extension.swift in Sources */,
 				3B000D7E277DE01100D9AC7D /* Date+Extension.swift in Sources */,
 				3B402587277DC3F5000394E8 /* PersonalFinanceApp.swift in Sources */,
 				3B000D79277DDD8A00D9AC7D /* PaymentActivity+CoreDataClass.swift in Sources */,
+				3BEFE5BF27831CC9004F0D91 /* TransactionDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,8 @@ struct DashBoardView: View {
     private var paymentActivities: FetchedResults<PaymentActivity>
     @State private var listType: TransactionDisplayType = .all
     @State private var editTransactionDetails = false
+    @State private var showTransactionDetails = false
+    @State private var selectedTransaction: PaymentActivity? = nil
     
     private var totalIncome: Double {
         paymentActivities
@@ -55,53 +57,72 @@ struct DashBoardView: View {
     }
     
     var body: some View {
-        List {
-            MenuBar {
-                TransactionView()
-            }
-            .listRowInsets(EdgeInsets())
-            
-            VStack {
-                PaymentCard(title: "Total Balance", price: totalBalance, color: .purple)
-                HStack(spacing: 10) {
-                    PaymentCard(title: "Income", price: totalIncome, color: .blue)
-                    PaymentCard(title: "Expense", price: totalExpense, color: .red)
+        ZStack {
+            List {
+                MenuBar {
+                    TransactionView()
                 }
+                .listRowInsets(EdgeInsets())
                 
-                TransactionHeader(listType: $listType)
+                VStack {
+                    PaymentCard(title: "Total Balance", price: totalBalance, color: .purple)
+                    HStack(spacing: 10) {
+                        PaymentCard(title: "Income", price: totalIncome, color: .blue)
+                        PaymentCard(title: "Expense", price: totalExpense, color: .red)
+                    }
+                    
+                    TransactionHeader(listType: $listType)
+                }
+                .padding(10)
+                .listRowInsets(EdgeInsets())
+                
+                ForEach(paymentTransactionsForView) { transaction in
+                    TransactionCellView(transaction: transaction)
+                        .onTapGesture {
+                            selectedTransaction = transaction
+                            showTransactionDetails = true
+                        }
+                        .contextMenu {
+                            Button(action: {
+                                // Edit payment details
+                                editTransactionDetails = true
+                            }) {
+                                HStack {
+                                    Text("Edit")
+                                    Image(systemName: "pencil")
+                                }
+                            }
+                            
+                            Button(action: {
+                                // Delete the selected payment
+                                self.delete(item: transaction)
+                            }) {
+                                HStack {
+                                    Text("Delete")
+                                    Image(systemName: "trash")
+                                }
+                            }
+                        }
+                        .sheet(isPresented: $editTransactionDetails) {
+                            editTransactionDetails = false
+                        } content: {
+                            TransactionView(transaction)
+                        }
+                    
+                }
             }
-            .padding(10)
-            .listRowInsets(EdgeInsets())
-            
-            ForEach(paymentTransactionsForView) { transaction in
-                TransactionCellView(transaction: transaction)
-                    .contextMenu {
-                        Button(action: {
-                            // Edit payment details
-                            editTransactionDetails = true
-                        }) {
-                            HStack {
-                                Text("Edit")
-                                Image(systemName: "pencil")
-                            }
-                        }
-                        
-                        Button(action: {
-                            // Delete the selected payment
-                            self.delete(item: transaction)
-                        }) {
-                            HStack {
-                                Text("Delete")
-                                Image(systemName: "trash")
-                            }
-                        }
+            .offset(y: showTransactionDetails ? -100 : 0)
+            .animation(.easeOut(duration: 0.3))
+            if showTransactionDetails {
+                
+                BlankView(bgColor: .black)
+                    .opacity(0.5)
+                    .onTapGesture {
+                        showTransactionDetails = false
                     }
-                    .sheet(isPresented: $editTransactionDetails) {
-                        editTransactionDetails = false
-                    } content: {
-                        TransactionView(transaction)
-                    }
-
+                
+                TransactionDetails(isShow: $showTransactionDetails, payment: selectedTransaction!)
+                    .transition(.move(edge: .bottom))
             }
         }
     }
