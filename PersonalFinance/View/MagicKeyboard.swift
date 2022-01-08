@@ -15,7 +15,7 @@ struct MagicKeyboard: ViewModifier {
     
     func body(content: Content) -> some View {
         return content
-            .offset( y: -keyboardHeight)
+            .offset( y: -keyboardHeight * 0.5)
             .onAppear(perform: handleKeyboardEvents)
     }
     

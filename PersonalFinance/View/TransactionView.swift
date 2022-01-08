@@ -120,8 +120,8 @@ struct TransactionView: View {
                 .disabled(!transactionViewModel.isFormInputValid)
             }
             .padding()
+            .keyboardAdaptive()
         }
-        .keyboardAdaptive()
     }
     
     
