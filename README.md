@@ -1,2 +1,2 @@
-# PersonalFinance
-An app that allowing users to keep track of his/her expense and income.
+# PersonalFinance SwiftUI 
+An app that allows users to keep track of his/her expense and income.
